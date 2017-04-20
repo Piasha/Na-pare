@@ -5,18 +5,94 @@
 </head>
 
 <body>
-
 <style>
 /*скоро тут будет оформление */
-</style>
-<input id="inp" type="text" >
+   
+   img{
+   	position:absolute;
+   	left:1300px;
+   	top: 7%;
+   }
+	
+   #inp{
+    position: absolute;
+    left: 30px;
+    top: 50px;
+    width: 1262px;
+   	height: 60px;
+   	font-size: 45px;
+   	user-select: none;
+   	font-family: "Times New Roman", Times, serif;
 
+   }
+   .kn{
+   	position: relative;
+   	background: #CDF76F;
+   	border: solid #0D8800;
+   	text-shadow: 2px 1px #ABABAA;
+   	top: 110px;
+   	left: 20px;
+   	width: 250px;
+   	height: 60px;
+   	font-size: 40px;
+   	font-family: "Times New Roman", Times, serif;
+   	font-weight: bold;
+   	transition: 2s all;
+   }
+
+   .kn:hover{
+   		transition: 2s all;
+   	   	background: #0D8800;
+   	   	border: solid black;
+   	   	color: #CDF76F;
+   	   	text-shadow: none;
+   }
+
+   .p{
+   	position: absolute;
+   }
+
+	
+	 .img:hover {
+	 	transform: rotate(360deg);
+	 	transition: 4s;
+	 }
+	.img {
+		transform: rotate(0deg);
+	 	transition: 6s;
+	}
+
+   .knUP{
+   	position: absolute;
+   	background: #CDF76F;
+   	border: solid #0D8800;
+   	text-shadow: 2px 1px #ABABAA;
+   	top: 181px;
+   	left: 27px;
+   	width: 1267px;
+   	height: 80px;
+   	font-size: 40px;
+   	font-family: "Times New Roman", Times, serif;
+   	font-weight: bold;
+   	transition: 2s all;
+   }
+      .knUP:hover{
+   		transition: 2s all;
+   	   	background: #0D8800;
+   	   	border: solid black;
+   	   	color: #CDF76F;
+   	   	text-shadow: none;
+
+</style>
+<img class="img" src="i.png"> 
+<input id="inp" type="text">
 <div id="knopka">
 	<button class="kn" onclick='del(document.getElementById("inp").value)'>Delete</button>
 	<button class="kn" onclick='pus(document.getElementById("inp").value)'>Push</button>
 	<button class="kn" onclick='edi(document.getElementById("inp").value)'>Edit</button>
 	<button class="kn" onclick='searc(document.getElementById("inp").value)'>Search</button>
 	<button class="kn" onclick='gut()'>GetAll</button>
+	<button class="knUP" onclick='cler(document.getElementById("inp").value)'>Clear</button>
 </div>
 
 <script>
@@ -45,6 +121,12 @@ var b = ["del(имя удаление)"," pus(новое имя)"," edi(стар
 
 	function gut(){
 		console.log(a);
+	}
+	
+	function cler(user){
+		 var buff = document.getElementById("inp");
+		 buff.value = "";
+        console.dir(buff);
 	}
 
 console.log(b);
