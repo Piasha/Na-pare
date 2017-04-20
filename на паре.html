@@ -1,0 +1,58 @@
+<DOCTYPE html>
+<html>
+<head> 
+	<meta charset="UTF-8">
+</head>
+
+<body>
+
+<style>
+/*скоро тут будет оформление */
+</style>
+<input id="inp" type="text" >
+
+<div id="knopka">
+	<button class="kn" onclick='del(document.getElementById("inp").value)'>Delete</button>
+	<button class="kn" onclick='pus(document.getElementById("inp").value)'>Push</button>
+	<button class="kn" onclick='edi(document.getElementById("inp").value)'>Edit</button>
+	<button class="kn" onclick='searc(document.getElementById("inp").value)'>Search</button>
+	<button class="kn" onclick='gut()'>GetAll</button>
+</div>
+
+<script>
+var user = document.getElementById("inp").value;
+var a = [];
+var b = ["del(имя удаление)"," pus(новое имя)"," edi(старое имя, новое имя)"," searc(Найти имя)", " gut()-вывод массива"];
+
+	function del(user){
+		var gus=a.indexOf(user);
+		delete a[gus];
+		console.log(a); 
+	}
+
+	function pus(user){
+		a.push(user);
+		} 
+		function edi(user){
+		var gus=a.indexOf(user);
+		a[gus]=prompt("Nove znach");
+	}
+
+	function searc(user){
+		var gus=a.indexOf(user);
+		console.log(a[gus]);
+	}
+
+	function gut(){
+		console.log(a);
+	}
+
+console.log(b);
+
+
+
+
+
+</script>
+</body>
+</html>
