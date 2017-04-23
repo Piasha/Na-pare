@@ -2,26 +2,16 @@
 <html>
 <head> 
 	<meta charset="UTF-8">
+		<link href="style.css" type= "text/css" rel="stylesheet"/>
 </head>
 
 <body>
 <style>
 /*скоро тут будет оформление */
    
-
-	.img2{
-		position:absolute;
-		width: 50px;
-		height: 50px;
-		left: 27px;
-
-	}	
-
-   .img{
-   	position:absolute;
-   	left:1300px;
-   	top: 7%;
-   }
+	html{
+		background: #EFEEDA;
+	}
 	
    #inp{
    	background: #CDF76F;
@@ -35,6 +25,7 @@
    	font-family: "Times New Roman", Times, serif;
    	transition: 1s all;
    	border: solid black;
+   	border-radius: 3px;
    }
 
     #inp:hover{
@@ -77,6 +68,7 @@
    		height: 70px;
    	   	text-shadow: none;
    	   	transition: 1s all;
+   	   	font-size: 60px;
    }
 
    .p{
@@ -84,14 +76,6 @@
    }
 
 	
-	 .img:hover {
-	 	transform: rotate(360deg);
-	 	transition: 4s;
-	 }
-	.img {
-		transform: rotate(0deg);
-	 	transition: 6s;
-	}
 
    .knUP{
    	position: absolute;
@@ -116,11 +100,39 @@
    	   	width: 1290px;
    		height: 100px;
    	   	transition: 2s all;
+   	   	font-size: 80px;
+	}
+   	   	#myDIV {
+   	   	position: absolute;
+   	   	top: 270px;
+   	   	left: 27px;	
+	    border: 1px solid black;
+	    margin-bottom: 10px;
+	}	
+	.alert{
+  padding: 15px;
+  border: 1px solid #d6e9c6;
+  border-radius: 4px;
+  color: #3c763d;
+  background-color: #dff0d8;
+	}
+table, th, td {
+	background: #CDF76F;
+    border: 1px solid black;
+    height: 30px;
+    width: 1267px;
+    font-size: 30px;
+    text-align: left;
+    transition: 1s all;
+}
+th:hover,td:hover{
+	background: #B3F3FF;
+	transition: 1s all;
+}
+
 
 </style>
-<a href="https://vk.com/id108442210"><img class="img2" src="vk.png"></a>
-<img class="img" src="i.png"> 
-<input id="inp" type="text">
+<input id="inp" type="text" >
 <div id="knopka">
 	<button class="kn" onclick='del(document.getElementById("inp").value)'>Delete</button>
 	<button class="kn" onclick='pus(document.getElementById("inp").value)'>Push</button>
@@ -130,39 +142,85 @@
 	<button class="knUP" onclick='cler(document.getElementById("inp").value)'>Clear</button>
 </div>
 
+
+<table style="border: 2px solid black; background-color: #B3F3FF;" id="myDIV">
+<tr>
+	<th class="xz" id="first1">Номер:</th>
+	<th class="xz" id="first2">Что в массиве:</th>
+</tr>
+</table>
+<!-------------------------------------------------------------------------------------------------------------------------->
+<div class="wrapper">
+  <div class="toggle">
+    <input class="toggle-input" type="checkbox" />
+    <div class="toggle-bg"></div>
+    <div class="toggle-switch">
+      <div class="toggle-switch-figure"></div>
+      <div class="toggle-switch-figureAlt"></div>
+    </div>  
+  </div>
+</div>
+<!-------------------------------------------------------------------------------------------------------------------------->
+
+
 <script>
 var user = document.getElementById("inp").value;
 var a = [];
 var b = ["del(имя удаление)"," pus(новое имя)"," edi(старое имя, новое имя)"," searc(Найти имя)", " gut()-вывод массива"];
+var nom = 0;
 
 	function del(user){
 		var gus=a.indexOf(user);
 		delete a[gus];
 		console.log(a); 
+		cons();
 	}
 
 	function pus(user){
 		a.push(user);
+		cons();
 		} 
 		function edi(user){
 		var gus=a.indexOf(user);
 		a[gus]=prompt("Nove znach");
+		cons();
 	}
 
 	function searc(user){
 		var gus=a.indexOf(user);
 		console.log(a[gus]);
+		cons();
 	}
 
 	function gut(){
 		console.log(a);
+		cons();
 	}
 	
 	function cler(user){
 		 var buff = document.getElementById("inp");
 		 buff.value = "";
         console.dir(buff);
+        cons();
 	}
+
+	function cons() {
+		nom++;
+
+		var elem = document.createElement("tr");
+		document.getElementById("myDIV").appendChild(elem);
+
+
+	  	var elem = document.createElement("th");
+	    elem.innerHTML = nom;
+	    document.getElementById("myDIV").appendChild(elem);
+
+
+	   	var elem = document.createElement("th");
+	    elem.innerHTML = a;
+	    document.getElementById("myDIV").appendChild(elem);
+	}
+
 
 console.log(b);
 
